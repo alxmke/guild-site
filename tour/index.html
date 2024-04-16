@@ -1,0 +1,1202 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+        <title>Guild</title>
+
+        <!-- TypeIt -->
+        <script src="node_modules/typeit/dist/index.umd.js"></script>
+
+        <!-- Driver.js -->
+        <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
+
+        <style>
+            .fade-in-text {
+                font-family: Arial;
+                font-size: 60px;
+                animation: fade-in 5s;
+                -webkit-animation: fade-in 5s;
+                -moz-animation: fade-in 5s;
+                -o-animation: fade-in 5s;
+                -ms-animation: fade-in 5s;
+            }
+
+            .box {
+                float: left;
+                height: 20px;
+                width: 20px;
+                margin-bottom: 15px;
+                border: 1px solid black;
+                clear: both;
+            }
+
+            @keyframes fade-in {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+
+            @-moz-keyframes fade-in {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+
+            @-webkit-keyframes fade-in {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+
+            @-o-keyframes fade-in {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+
+            @-ms-keyframes fade-in {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+        </style>
+
+        <script>
+        function time() {
+            date = new Date().toLocaleString('en-GB').split(",")
+            return [date[0].split("/").reverse().join("-"), date[1]].join("")
+        }
+
+        function typeit_term_start(
+            fade,
+            term,
+            script,
+            script_frame,
+            typeit_term,
+            skip_animation,
+        ) {
+            let window_height = 440
+            setDim(term, 700, window_height)
+            script.style.height = `${window_height}px`
+            script_frame.style.height = `${window_height}px`
+            if (typeit_term) typeit_term.reset()
+            typeit_term = new TypeIt("#TERMINAL", {
+                lifeLike: true,
+                startDelay: skip_animation ? 0 : 200,
+                speed: skip_animation ? 0 : 50,
+                waitUntilVisible: true,
+                cursorChar: "▮",
+                cursorSpeed: 0,
+            })
+                .options({speed: 0})
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .options({speed: skip_animation ? 0 : 75})
+                .flush()
+            return typeit_term
+        }
+
+        function typeit_run(
+            fade,
+            term,
+            script,
+            script_frame,
+            typeit_term,
+            reset_term,
+            skip_animation,
+        ) {
+            let window_height = 440
+            setDim(term, 700, window_height)
+            script.style.height = `${window_height}px`
+            script_frame.style.height = `${window_height}px`
+            if (typeit_term && reset_term) {
+                typeit_term.reset()
+                typeit_term = new TypeIt("#TERMINAL", {
+                    lifeLike: true,
+                    startDelay: skip_animation ? 0 : 200,
+                    speed: skip_animation ? 0 : 50,
+                    waitUntilVisible: true,
+                    cursorChar: "▮",
+                    cursorSpeed: 0,
+                })
+                    .options({speed: 0})
+                    .type("<span style=\"color: lime;\">~/project</span> $ ")
+            }
+            typeit_term
+                .pause(skip_animation ? 0 : 1000)
+                .options({speed: skip_animation ? 0 : 75})
+                .type(`guild run your_script.py`).break()
+                .pause(skip_animation ? 0 : 200)
+                .options({speed: 0})
+                .type(`You are about to run your_script.py`).break()
+                .type("&nbsp;&nbsp;noise: 0.1").break()
+                .type("&nbsp;&nbsp;x: 0.1").break()
+                .type("Continue? (Y/n)")
+                .pause(skip_animation ? 0 : 1400)
+                .break()
+                .pause(skip_animation ? 0 : 200)
+                .type("x: 0.100000").break()
+                .type("noise: 0.100000").break()
+                .type("loss: 0.393393").break()
+                .break()
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .flush()
+            return typeit_term
+        }
+
+        function typeit_runs(
+            fade,
+            term,
+            script,
+            script_frame,
+            typeit_term,
+            reset_term,
+            skip_animation,
+        ) {
+            let window_height = 440
+            setDim(term, 700, window_height)
+            script.style.height = `${window_height}px`
+            script_frame.style.height = `${window_height}px`
+            if (typeit_term && reset_term) {
+                typeit_term.reset()
+                typeit_term = new TypeIt("#TERMINAL", {
+                    lifeLike: true,
+                    startDelay: skip_animation ? 0 : 200,
+                    speed: skip_animation ? 0 : 50,
+                    waitUntilVisible: true,
+                    cursorChar: "▮",
+                    cursorSpeed: 0,
+                })
+                    .options({speed: 0})
+                    .type("<span style=\"color: lime; \">~/project</span> $ ")
+            }
+            typeit_term
+                .pause(skip_animation ? 0 : 1000)
+                .options({speed: skip_animation ? 0 : 75})
+                .type("guild runs")
+                .pause(skip_animation ? 0 : 400)
+                .break()
+                .pause(skip_animation ? 0 : 200)
+                .options({speed: 0})
+                .type(`[1:cb5559c8]  your_script.py  ${time()}  completed  noise=0.1 x=0.2`).break()
+                .type(`[2:ff880174]  your_script.py  ${time()}  completed  noise=0.1 x=0.1`).break()
+                .break()
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .flush()
+            return typeit_term
+        }
+
+        function typeit_flags(
+            fade,
+            term,
+            script,
+            script_frame,
+            typeit_term,
+            skip_animation,
+        ) {
+            typeit_term.reset()
+            typeit_term = new TypeIt("#TERMINAL", {
+                lifeLike: true,
+                startDelay: skip_animation ? 0 : 200,
+                speed: skip_animation ? 0 : 50,
+                waitUntilVisible: true,
+                cursorChar: "▮",
+                cursorSpeed: 0,
+            })
+                .options({speed: 0})
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .pause(skip_animation ? 0 : 600)
+                .options({speed: skip_animation ? 0 : 75})
+                .type("guild run your_script.py x=0.2 -y").break()
+                .pause(skip_animation ? 0 : 200)
+                .options({speed: 0})
+                .type("x: 0.200000").break()
+                .type("noise: 0.100000").break()
+                .type("loss: 0.820756").break()
+                .break()
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .go()
+            return typeit_term
+        }
+        function typeit_batch(
+            fade,
+            term,
+            script,
+            script_frame,
+            typeit_term,
+            skip_animation,
+        ) {
+            setDim(term, 890, 460)
+            script.style.height = `460px`
+            script_frame.style.height = `460px`
+            typeit_term.reset()
+            typeit_term = new TypeIt("#TERMINAL", {
+                lifeLike: true,
+                startDelay: skip_animation ? 0 : 200,
+                speed: skip_animation ? 0 : 50,
+                waitUntilVisible: true,
+                cursorChar: "▮",
+                cursorSpeed: 0,
+            })
+                .options({speed: 0})
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .pause(skip_animation ? 0 : 2500)
+                .options({speed: skip_animation ? 0 : 75})
+                .type("guild run your_script.py x=\"[0.3, 0.4, 0.5]\" -y").pause(skip_animation ? 0 : 400).break()
+                .pause(skip_animation ? 0 : 200)
+                .options({speed: 0})
+                .type("INFO: [guild] Running trial cea7e92589124d8f9801eb93e0989a82: your_script.py (noise=0.1, x=0.3)").break()
+                .type("x: 0.300000").break()
+                .type("noise: 0.100000").break()
+                .type("loss: 0.899266").break()
+                .pause(skip_animation ? 0 : 400)
+                .type("INFO: [guild] Running trial c1b4e1cfdb284bda969b0a8d589fe320: your_script.py (noise=0.1, x=0.4)").break()
+                .type("x: 0.400000").break()
+                .type("noise: 0.100000").break()
+                .type("loss: 0.971279").break()
+                .pause(skip_animation ? 0 : 400)
+                .type("INFO: [guild] Running trial 79f3a3e562c3413aaae891bb4ace0624: your_script.py (noise=0.1, x=0.5)").break()
+                .type("x: 0.500000").break()
+                .type("noise: 0.100000").break()
+                .type("loss: 0.440604").break()
+                .break()
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .go()
+            return typeit_term
+        }
+        function typeit_opt(
+            fade,
+            term,
+            script,
+            script_frame,
+            typeit_term,
+            skip_animation,
+        ) {
+            fade.innerHTML = `
+                <span class="fade-in-text" style="font-size: 18px;">Discover optimal values for your hyperparameters.</span>
+            `
+            setDim(term, 940, 570)
+            script.style.height = `570px`
+            script_frame.style.height = `570px`
+            typeit_term.reset()
+            typeit_term = new TypeIt("#TERMINAL", {
+                lifeLike: true,
+                startDelay: skip_animation ? 0 : 200,
+                speed: skip_animation ? 0 : 50,
+                waitUntilVisible: true,
+                cursorChar: "▮",
+                cursorSpeed: 0,
+            })
+                .options({speed: 0})
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .pause(skip_animation ? 0 : 1500)
+                .options({speed: skip_animation ? 0 : 75})
+                .type("guild run your_script.py x=\"[-2.0:2.0]\" --optimize -y").pause(skip_animation ? 0 : 400).break()
+                .pause(skip_animation ? 0 : 200)
+                .options({speed: 0})
+                .type("INFO: [guild] Random start for optimization (1 of 3)").break()
+                .type("INFO: [guild] Running trial 4ddc22163c5b48da962edf932b0a38c8: your_script.py (noise=0.1, x=0.062721)").break()
+                .type("x: 0.062721").break()
+                .type("noise: 0.100000").break()
+                .type("loss: 0.192272").break()
+                .pause(skip_animation ? 0 : 400)
+                .type("INFO: [guild] Random start for optimization (2 of 3)").break()
+                .type("INFO: [guild] Running trial 92fdd8cedbd248e4a9da54fc2cb4016c: your_script.py (noise=0.1, x=1.389857)").break()
+                .type("x: 1.389857").break()
+                .type("noise: 0.100000").break()
+                .type("loss: 0.004937").break()
+                .pause(skip_animation ? 0 : 400)
+                .type("INFO: [guild] Random start for optimization (3 of 3)").break()
+                .type("INFO: [guild] Running trial 3d09e42745c146ffacf97d4a22f228a8: your_script.py (noise=0.1, x=-0.948398)").break()
+                .type("x: -0.948398").break()
+                .type("noise: 0.100000").break()
+                .type("loss: 0.394093").break()
+                .break()
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .pause(skip_animation ? 0 : 1400)
+                .options({speed: skip_animation ? 0 : 75})
+                .type("guild runs -n4").break()
+                .pause(skip_animation ? 0 : 200)
+                .options({speed: 0})
+                .type(`[1:0e449784]  your_script.py           ${time()}  completed  noise=0.1 x=1.44592`).break()
+                .type(`[2:b542e4e1]  your_script.py           ${time()}  completed  noise=0.1 x=-1.14257`).break()
+                .type(`[3:88b7b994]  your_script.py           ${time()}  completed  noise=0.1 x=0.84936`).break()
+                .type(`[4:da9eb322]  your_script.py+skopt:gp  ${time()}  completed  acq-func=gp_hedge kappa=1.96 noise=gaussian prev-trials=batch random-starts=3 xi=0.05`).break()
+                .break()
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .go()
+            return typeit_term
+        }
+        function typeit_view(
+            fade,
+            term,
+            script,
+            script_frame,
+            typeit_term,
+            skip_animation,
+        ) {
+            fade.innerHTML = `
+                <span class="fade-in-text" style="font-size: 18px;">
+                    Visualize, organize, and analyze your experiments with <kbd style="font-size: 16px;">guild view</kbd>.
+                </span>
+            `
+            setDim(term, 660, 440)
+            script.style.display = `none`
+            script.style.height = `440px`
+            script_frame.style.height = `440px`
+            typeit_term.reset()
+            typeit_term = new TypeIt("#TERMINAL", {
+                lifeLike: true,
+                startDelay: skip_animation ? 0 : 200,
+                speed: skip_animation ? 0 : 50,
+                waitUntilVisible: true,
+                cursorChar: "▮",
+                cursorSpeed: 0,
+            })
+                .options({speed: 0})
+                .type("<span style=\"color: lime;\">~/project</span> $ ")
+                .pause(skip_animation ? 0 : 1500)
+                .options({speed: skip_animation ? 0 : 75})
+                .type("guild view").pause(skip_animation ? 0 : 400).break()
+                .pause(skip_animation ? 0 : 200)
+                .options({speed: 0})
+                .type(`127.0.0.1 - - [${time()}] "GET /ping HTTP/1.1" 200 -`).break()
+                .type(`Running Guild View at http://localhost:56967 (Type Ctrl-C to quit)`).break()
+                .go()
+            return typeit_term
+        }
+        </script>
+    </head>
+    <body style="background-color: lightgray;">
+        <div class="d-flex justify-content-center" style="margin-top: 15px;">
+            <!-- src="https://guild.ai/assets/icons/folder-check.svg" -->
+            <img
+                class="feature-icon"
+                src="https://guild.ai/assets/icons/folder-check.svg"
+                alt="Experiment"
+                style="margin: 0px 15px 5px 15px;"
+            > Experiment
+            <img
+                class="feature-icon"
+                src="https://guild.ai/assets/icons/hierarchy.svg"
+                alt="Automate"
+                style="margin: 0px 15px 5px 15px;"
+            > Automate
+            <img
+                class="feature-icon"
+                src="https://guild.ai/assets/icons/analytics-graph.svg"
+                alt="Analyze"
+                style="margin: 0px 15px 5px 15px;"
+            > Analyze
+            <img
+                class="feature-icon"
+                src="https://guild.ai/assets/icons/common-file-text-share.svg"
+                alt="Share"
+                style="margin: 0px 15px 5px 15px;"
+            > Share
+        </div>
+        
+        <div class="d-flex justify-content-center" style="margin-top: 24px;">
+            <kbd class="lang-command" id="gpips">$ pip install guildai</kbd>
+        </div>
+        <br>
+        
+
+        <script>
+        function newItem(
+            parent,
+            id,
+            type,
+            style,
+            cls,
+            width,
+            height,
+            inner_html,
+        ) {
+            
+            let dim_style=`
+                width: ${width};
+                height: ${height};
+            `
+            style+=dim_style
+            type = document.createElement(type)
+            type.setAttribute("id", id)
+            type.setAttribute("style", style)
+            type.setAttribute("class", cls)
+            type.setAttribute("width", width)
+            type.setAttribute("height", height)
+            type.innerHTML = inner_html
+            document.getElementById(parent).appendChild(type)
+        }
+
+        function setDim(elem, width, height) {
+            elem.style.width = `${width}px`
+            elem.style.height = `${height}px`
+        }
+        
+        function change_fade(
+            fade,
+            text,
+        ) {
+            fade.innerHTML = `
+                <span class="fade-in-text" style="font-size: 18px;">
+                    ${text}
+                </span>
+            `
+        }
+        </script>
+
+        <div id="PARENT-DIV" class="row justify-content-md-center"></div>
+        <script>
+        let term_style=`
+            margin-top: 24px;
+            margin-right: 10px;
+            margin-left: 10px;
+            background-color: black;
+            color: white;
+            font-family: Courier New, Courier, monospace;
+            font-size: 15px;
+        `
+
+        // TODO: make note of guild being free and open source, not requiring any sign-up or accounts, not requiring any code changes
+        start_fade_text = 'Explore, automate, analyze, and share your experiments effortlessly using <kbd style="font-size: 16px;">guild</kbd>.'
+        newItem(
+            parent="PARENT-DIV",
+            id="FADE",
+            type="div",
+            style="",
+            cls="d-flex justify-content-center",
+            width="",
+            height="",
+            inner_html = `
+                <span class="fade-in-text" style="font-size: 18px;">
+                    ${start_fade_text}
+                </span>
+            `
+        )
+
+        fade = document.getElementById("FADE")
+        </script>
+
+        <div class="d-flex justify-content-center" style="margin-top: 24px;">
+            <button type="button" id="driverjs_tour" onclick="driverjs_tour()">Guild Tour</button>
+        </div>
+        <script>
+        typeit_term = null
+        let step = 0
+        function driverjs_tour() {
+            const Driver = window.driver.js.driver
+
+            const driver = Driver({
+                showProgress: true,
+                steps: [
+                    // installation
+                    {   element: '#gpips',
+                        popover: {
+                            title: 'Getting started',
+                            description: 'Installing and getting started with <kbd>guild</kbd> is easy.',
+                            side: "bottom",
+                            align: "center",
+                            onPrevClick: () => {
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="SCRIPT",
+                                    type="div",
+                                    style="margin-right: 10px; margin-left: 10px;",
+                                    cls="col-md-4",
+                                    width="700px",
+                                    height="440px",
+                                    inner_html=`
+                                        <label style="color:bisque; background-color: #26292f; border-radius: 10px 10px 0 0;">
+                                            <span style="margin: 0 10px 0 10px;">your_script.py</span>
+                                        </label>
+                                        <div id="SCRIPT-FRAME" width="700" height="440" style="
+                                            font-family:Helvetica, Arial, sans-serif;
+                                            font-size: 16px;
+                                            color: bisque;
+                                            background-color: #2e3238;
+                                            line-height: 1.1;
+                                        ">
+                                            <span id="SOURCECODE"><div style="line-height: 0.4;"><br></div>
+                                            <pre style="display: inline;">  1   import numpy as np</pre><br><span id="HYPERPARAMETERS">
+                                            <pre style="display: inline;">  2</pre><br>
+                                            <pre style="display: inline;">  3   # Hyperparameters</pre><br>
+                                            <pre style="display: inline;">  4   x = 0.1</pre><br>
+                                            <pre style="display: inline;">  5   noise = 0.1</pre><br>
+                                            <pre style="display: inline;">  6</pre><br></span>
+                                            <pre style="display: inline;">  7   # Simulated training loss</pre><br>
+                                            <pre style="display: inline;">  8   loss = (np.sin(5*x) * (1 - np.tanh(x**2)) + np.random.randn() * noise)</pre><br>
+                                            <pre style="display: inline;">  9</pre><br>
+                                            <pre style="display: inline;"> 10   print(f"loss: {loss}")</pre><br></span>
+                                        </div>
+                                    `,
+                                )
+                                script = document.getElementById("SCRIPT")
+                                script_frame = document.getElementById("SCRIPT-FRAME")
+                                let window_height = 440
+                                script.style.height = `${window_height}px`
+                                script_frame.style.height = `${window_height}px`
+                                change_fade(
+                                    fade,
+                                    'Choose a script to get started with.',
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        }
+                    },
+
+                    //  script
+                    {   element: '#PARENT-DIV',
+                        popover: {
+                            title: 'Your script',
+                            description: 'After installing, we can run an experiment using any script you like.',
+                            side: "bottom",
+                            align: "center",
+                            onPrevClick: () => {
+                                script?.remove()
+                                change_fade(
+                                    fade,
+                                    start_fade_text,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // no code changes
+                    {   element: '#SCRIPT',
+                        popover: {
+                            title: 'No code changes',
+                            description: "You don't have to modify your script at all to work with <kbd>guild</kbd>!",
+                            side: "left",
+                            align: "center",
+                            onPrevClick: () => {
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="TERMINAL",
+                                    type="div",
+                                    style=term_style,
+                                    cls="col-md-4",
+                                    width="700px",
+                                    height="440px",
+                                    inner_html="",
+                                )
+                                term = document.getElementById("TERMINAL")
+                                change_fade(
+                                    fade,
+                                    'Run experiments and record results using <kbd style="font-size: 16px;">guild run</kbd>.',
+                                )
+                                typeit_term = typeit_term_start(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    false,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // terminal
+                    {   element: '#PARENT-DIV',
+                        popover: {
+                            title: 'Working at the command line',
+                            description: 'After choosing a script, we can go to the command line and starting running experiments.',
+                            side: "bottom",
+                            align: "center",
+                            onPrevClick: () => {
+                                change_fade(
+                                    fade,
+                                    'Choose a script to get started with.',
+                                )
+                                step -= 1
+                                term?.remove()
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                typeit_term = typeit_run(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    false,
+                                    false,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // run
+                    {   element: '#TERMINAL',
+                        popover: {
+                            title: 'Run experiments',
+                            description: `The simplest way to run your experiment is by passing your script's path to the<br> <kbd>guild run</kbd> command.`,
+                            side: "left",
+                            align: "start",
+                            onPrevClick: () => {
+                                typeit_term = typeit_term_start(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                typeit_term = typeit_run(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                    true,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // what just happened?
+                    {   element: '#TERMINAL',
+                        popover: {
+                            title: 'What just happened?',
+                            description: `An experiment was just conducted, capturing things like script parameters, output, and useful metadata like start and end times.`,
+                            side: "left",
+                            align: "start",
+                            onPrevClick: () => {
+                                typeit_term = typeit_run(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                step += 1
+                                change_fade(
+                                    fade,
+                                    "Configure parameters easily for any experiment.",
+                                )
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // intro flags
+                    {   element: '#HYPERPARAMETERS',
+                        popover: {
+                            title: 'Flags',
+                            description: 'Global variables (flags) can be easily modified without ever changing code.',
+                            side: "bottom",
+                            align: "center",
+                            onPrevClick: () => {
+                                change_fade(
+                                    fade,
+                                    'Run experiments and record results using <kbd style="font-size: 16px;">guild run</kbd>.',
+                                )
+                                typeit_term = typeit_run(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                typeit_term = typeit_flags(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    false,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // flags
+                    {   element: '#TERMINAL',
+                        popover: {
+                            title: 'Experiment with different values',
+                            description: 'Modify any flag in your experiment by passing a new value to the run.',
+                            side: "left",
+                            align: "start",
+                            onPrevClick: () => {
+                                typeit_term = typeit_run(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                typeit_term = typeit_runs(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                    false,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // guild runs
+                    {   element: '#TERMINAL',
+                        popover: {
+                            title: 'Experiment history',
+                            description: 'See a summary of your experiments using <br><kbd>guild runs</kbd>.',
+                            side: "left",
+                            align: "start",
+                            onPrevClick: () => {
+                                typeit_term = typeit_flags(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                typeit_term = typeit_batch(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    false,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+                    //     captured inputs ->
+                    //     outputs ->
+                    //     show guild runs log, and then note the project files at time of run saved)
+                    
+                    // batch run
+                    {   element: '#TERMINAL',
+                        popover: {
+                            title: 'Run batches of experiments',
+                            description: 'Run a batch of experiments over a range of values. If you give multiple ranges for different flags, guild will search over each possible combination.',
+                            side: "left",
+                            align: "start",
+                            onPrevClick: () => {
+                                typeit_term = typeit_runs(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+                    
+                    // still no code changes
+                    {   element: '#SOURCECODE',
+                        popover: {
+                            title: 'No code changes',
+                            description: 'Still no changes! <kbd>guild</kbd> never requires you to make special changes to your files.',
+                            side: "right",
+                            align: "center",
+                            onPrevClick: () => {
+                                typeit_term = typeit_batch(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                typeit_term = typeit_opt(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    false,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // opt
+                    {   element: '#TERMINAL',
+                        popover: {
+                            title: 'Hyperparameter tuning',
+                            description: `Choose an optimizer, here we use skopt's built-in bayesian optimizer (gp), and a range of values to maximize outcomes for your experiment.`,
+                            side: "left",
+                            align: "start",
+                            onPrevClick: () => {
+                                typeit_term = typeit_batch(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                typeit_term = typeit_view(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    false,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // run view
+                    {   element: '#PARENT-DIV',
+                        popover: {
+                            title: 'Experiment and investigate with guild view',
+                            description: 'Gather insights, build workflows, and organize your results using <kbd>guild view</kbd>.',
+                            side: "bottom",
+                            align: "center",
+                            onPrevClick: () => {
+                                script.style.display = `block`
+                                typeit_term = typeit_opt(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                term.style.display = `none`
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="view-1",
+                                    type="div",
+                                    style="",
+                                    cls="d-flex justify-content-center",
+                                    width="1120px",
+                                    height="630px",
+                                    inner_html=`
+                                    <video autoplay muted width="1120" height="630" style="margin: 5px 5px 5px 5px;">
+                                        <source src="view-1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>`,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // guild view tour
+                    {   element: '#PARENT-DIV',
+                        popover: {
+                            title: 'Organize your experiments',
+                            description: 'Organize and navigate through your experiments with filters, sorting, collections, and more.',
+                            side: "top",
+                            align: "center",
+                            onPrevClick: () => {
+                                term.style.display = `block`
+                                document.getElementById("view-1")?.remove()
+                                typeit_term = typeit_view(
+                                    fade,
+                                    term,
+                                    script,
+                                    script_frame,
+                                    typeit_term,
+                                    true,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                document.getElementById("view-1")?.remove()
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="view-3",
+                                    type="div",
+                                    style="",
+                                    cls="d-flex justify-content-center",
+                                    width="1120px",
+                                    height="630px",
+                                    inner_html=`
+                                    <video autoplay muted width="1120" height="630" style="margin: 5px 5px 5px 5px;">
+                                        <source src="view-3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>`,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    //     - open a sourcecode file like train.py
+                    //     - scroll right sidebar
+                    // 14t: grid view (organize) {have images, scalars?}, and 
+                    {   element: '#PARENT-DIV',
+                        popover: {
+                            title: 'View individual experiments',
+                            description: 'Drill down into all the details of individual experiments, like output, generated files, and sourcecode.',
+                            side: "top",
+                            align: "center",
+                            onPrevClick: () => {
+                                document.getElementById("view-3")?.remove()
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="view-1",
+                                    type="div",
+                                    style="",
+                                    cls="d-flex justify-content-center",
+                                    width="1120px",
+                                    height="630px",
+                                    inner_html=`
+                                    <video autoplay muted width="1120" height="630" style="margin: 5px 5px 5px 5px;">
+                                        <source src="view-2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>`,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                document.getElementById("view-3")?.remove()
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="view-4",
+                                    type="div",
+                                    style="",
+                                    cls="d-flex justify-content-center",
+                                    width="1120px",
+                                    height="630px",
+                                    inner_html=`
+                                    <video autoplay muted width="1120" height="630" style="margin: 5px 5px 5px 5px;">
+                                        <source src="view-4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>`,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // 15t: compare
+                    {   element: '#PARENT-DIV',
+                        popover: {
+                            title: 'Compare different experiments',
+                            description: 'Compare a group of experiments, with side-by-side file comparisson and difference highlighting.',
+                            side: "top",
+                            align: "center",
+                            onPrevClick: () => {
+                                document.getElementById("view-4")?.remove()
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="view-3",
+                                    type="div",
+                                    style="",
+                                    cls="d-flex justify-content-center",
+                                    width="1120px",
+                                    height="630px",
+                                    inner_html=`
+                                    <video autoplay muted width="1120" height="630" style="margin: 5px 5px 5px 5px;">
+                                        <source src="view-3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>`,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                document.getElementById("view-4")?.remove()
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="view-5",
+                                    type="div",
+                                    style="",
+                                    cls="d-flex justify-content-center",
+                                    width="1120px",
+                                    height="630px",
+                                    inner_html=`
+                                    <video autoplay muted width="1120" height="630" style="margin: 5px 5px 5px 5px;">
+                                        <source src="view-5.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>`,
+                                )
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+                    // 16t: summaries
+                    {   element: '#PARENT-DIV',
+                        popover: {
+                            title: 'Visualize with summaries',
+                            description: 'Visualize your experiments using a wide variety of plots and output summaries, like parallel coordinates, scatter plots, and generated media.',
+                            side: "top",
+                            align: "center",
+                            onPrevClick: () => {
+                                document.getElementById("view-5")?.remove()
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="view-4",
+                                    type="div",
+                                    style="",
+                                    cls="d-flex justify-content-center",
+                                    width="1120px",
+                                    height="630px",
+                                    inner_html=`
+                                    <video autoplay muted width="1120" height="630" style="margin: 5px 5px 5px 5px;">
+                                        <source src="view-4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>`,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                document.getElementById("view-5")?.remove()
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    // remotes
+                    {   element: '#PARENT-DIV',
+                        popover: {
+                            title: 'Share results and work remotely',
+                            description: 'Store, share, and collaborate anywhere.',
+                            side: "bottom",
+                            align: "center",
+                            onPrevClick: () => {
+                                newItem(
+                                    parent="PARENT-DIV",
+                                    id="view-5",
+                                    type="div",
+                                    style="",
+                                    cls="d-flex justify-content-center",
+                                    width="1120px",
+                                    height="630px",
+                                    inner_html=`
+                                    <video autoplay muted width="1120" height="630" style="margin: 5px 5px 5px 5px;">
+                                        <source src="view-5.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>`,
+                                )
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+
+                    {   element: '#PARENT-DIV',
+                        popover: {
+                            title: 'Summary and overview',
+                            description: '<kbd>guild</kbd> enables you to conduct, automate, analyze, and share your experiments. TODO: graphic popups here?',
+                            side: "bottom",
+                            align: "center",
+                            onPrevClick: () => {
+                                step -= 1
+                                driver.movePrevious()
+                            },
+                            onNextClick: () => {
+                                // step += 1
+                                driver.moveNext()
+                            },
+                        },
+                    },
+                ]
+
+            })
+            driver.drive(step)
+            console.log(time())
+        }
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+    </body>
+    </html>

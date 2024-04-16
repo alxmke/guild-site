@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "driver.js": "^1.0.5",
+    "typeit": "^8.7.1"
+  }
+}
